@@ -14,8 +14,8 @@
     <result column="is_frame" jdbcType="INTEGER" property="isFrame" />
     <result column="is_cache" jdbcType="INTEGER" property="isCache" />
     <result column="menu_type" jdbcType="CHAR" property="menuType" />
-    <result column="visible" jdbcType="CHAR" property="visible" />
-    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="visible" jdbcType="INTEGER" property="visible" />
+    <result column="status" jdbcType="INTEGER" property="status" />
     <result column="perms" jdbcType="VARCHAR" property="perms" />
     <result column="icon" jdbcType="VARCHAR" property="icon" />
     <result column="create_by" jdbcType="VARCHAR" property="createBy" />
@@ -47,15 +47,17 @@
     insert into sys_menu (menu_name, parent_id, order_num, 
       `path`, component, query, 
       is_frame, is_cache, menu_type, 
-      visible, `status`, perms, icon, 
-      create_by, create_time, update_by, 
-      update_time, remark)
+      visible, `status`, perms, 
+      icon, create_by, create_time, 
+      update_by, update_time, remark
+      )
     values (#{menuName,jdbcType=VARCHAR}, #{parentId,jdbcType=BIGINT}, #{orderNum,jdbcType=INTEGER}, 
       #{path,jdbcType=VARCHAR}, #{component,jdbcType=VARCHAR}, #{query,jdbcType=VARCHAR}, 
       #{isFrame,jdbcType=INTEGER}, #{isCache,jdbcType=INTEGER}, #{menuType,jdbcType=CHAR}, 
-      #{visible,jdbcType=CHAR}, #{status,jdbcType=CHAR}, #{perms,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, 
-      #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
+      #{visible,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{perms,jdbcType=VARCHAR}, 
+      #{icon,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" keyColumn="menu_id" keyProperty="menuId" parameterType="com.coriander.system.domain.pojo.SysMenu" useGeneratedKeys="true">
     <!--@mbg.generated-->
@@ -145,10 +147,10 @@
         #{menuType,jdbcType=CHAR},
       </if>
       <if test="visible != null">
-        #{visible,jdbcType=CHAR},
+        #{visible,jdbcType=INTEGER},
       </if>
       <if test="status != null">
-        #{status,jdbcType=CHAR},
+        #{status,jdbcType=INTEGER},
       </if>
       <if test="perms != null">
         #{perms,jdbcType=VARCHAR},
@@ -205,10 +207,10 @@
         menu_type = #{menuType,jdbcType=CHAR},
       </if>
       <if test="visible != null">
-        visible = #{visible,jdbcType=CHAR},
+        visible = #{visible,jdbcType=INTEGER},
       </if>
       <if test="status != null">
-        `status` = #{status,jdbcType=CHAR},
+        `status` = #{status,jdbcType=INTEGER},
       </if>
       <if test="perms != null">
         perms = #{perms,jdbcType=VARCHAR},
@@ -246,8 +248,8 @@
       is_frame = #{isFrame,jdbcType=INTEGER},
       is_cache = #{isCache,jdbcType=INTEGER},
       menu_type = #{menuType,jdbcType=CHAR},
-      visible = #{visible,jdbcType=CHAR},
-      `status` = #{status,jdbcType=CHAR},
+      visible = #{visible,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=INTEGER},
       perms = #{perms,jdbcType=VARCHAR},
       icon = #{icon,jdbcType=VARCHAR},
       create_by = #{createBy,jdbcType=VARCHAR},

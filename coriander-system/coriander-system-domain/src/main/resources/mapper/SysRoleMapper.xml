@@ -8,11 +8,11 @@
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
     <result column="role_key" jdbcType="VARCHAR" property="roleKey" />
     <result column="role_sort" jdbcType="INTEGER" property="roleSort" />
-    <result column="data_scope" jdbcType="CHAR" property="dataScope" />
-    <result column="menu_check_strictly" jdbcType="BOOLEAN" property="menuCheckStrictly" />
-    <result column="dept_check_strictly" jdbcType="BOOLEAN" property="deptCheckStrictly" />
-    <result column="status" jdbcType="CHAR" property="status" />
-    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
+    <result column="data_scope" jdbcType="INTEGER" property="dataScope" />
+    <result column="menu_check_strictly" jdbcType="INTEGER" property="menuCheckStrictly" />
+    <result column="dept_check_strictly" jdbcType="INTEGER" property="deptCheckStrictly" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="del_flag" jdbcType="INTEGER" property="delFlag" />
     <result column="create_by" jdbcType="VARCHAR" property="createBy" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
@@ -44,8 +44,8 @@
       create_time, update_by, update_time, 
       remark)
     values (#{roleName,jdbcType=VARCHAR}, #{roleKey,jdbcType=VARCHAR}, #{roleSort,jdbcType=INTEGER}, 
-      #{dataScope,jdbcType=CHAR}, #{menuCheckStrictly,jdbcType=BOOLEAN}, #{deptCheckStrictly,jdbcType=BOOLEAN}, 
-      #{status,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, #{createBy,jdbcType=VARCHAR}, 
+      #{dataScope,jdbcType=INTEGER}, #{menuCheckStrictly,jdbcType=INTEGER}, #{deptCheckStrictly,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{delFlag,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{remark,jdbcType=VARCHAR})
   </insert>
@@ -104,19 +104,19 @@
         #{roleSort,jdbcType=INTEGER},
       </if>
       <if test="dataScope != null">
-        #{dataScope,jdbcType=CHAR},
+        #{dataScope,jdbcType=INTEGER},
       </if>
       <if test="menuCheckStrictly != null">
-        #{menuCheckStrictly,jdbcType=BOOLEAN},
+        #{menuCheckStrictly,jdbcType=INTEGER},
       </if>
       <if test="deptCheckStrictly != null">
-        #{deptCheckStrictly,jdbcType=BOOLEAN},
+        #{deptCheckStrictly,jdbcType=INTEGER},
       </if>
       <if test="status != null">
-        #{status,jdbcType=CHAR},
+        #{status,jdbcType=INTEGER},
       </if>
       <if test="delFlag != null">
-        #{delFlag,jdbcType=CHAR},
+        #{delFlag,jdbcType=INTEGER},
       </if>
       <if test="createBy != null">
         #{createBy,jdbcType=VARCHAR},
@@ -149,19 +149,19 @@
         role_sort = #{roleSort,jdbcType=INTEGER},
       </if>
       <if test="dataScope != null">
-        data_scope = #{dataScope,jdbcType=CHAR},
+        data_scope = #{dataScope,jdbcType=INTEGER},
       </if>
       <if test="menuCheckStrictly != null">
-        menu_check_strictly = #{menuCheckStrictly,jdbcType=BOOLEAN},
+        menu_check_strictly = #{menuCheckStrictly,jdbcType=INTEGER},
       </if>
       <if test="deptCheckStrictly != null">
-        dept_check_strictly = #{deptCheckStrictly,jdbcType=BOOLEAN},
+        dept_check_strictly = #{deptCheckStrictly,jdbcType=INTEGER},
       </if>
       <if test="status != null">
-        `status` = #{status,jdbcType=CHAR},
+        `status` = #{status,jdbcType=INTEGER},
       </if>
       <if test="delFlag != null">
-        del_flag = #{delFlag,jdbcType=CHAR},
+        del_flag = #{delFlag,jdbcType=INTEGER},
       </if>
       <if test="createBy != null">
         create_by = #{createBy,jdbcType=VARCHAR},
@@ -187,11 +187,11 @@
     set role_name = #{roleName,jdbcType=VARCHAR},
       role_key = #{roleKey,jdbcType=VARCHAR},
       role_sort = #{roleSort,jdbcType=INTEGER},
-      data_scope = #{dataScope,jdbcType=CHAR},
-      menu_check_strictly = #{menuCheckStrictly,jdbcType=BOOLEAN},
-      dept_check_strictly = #{deptCheckStrictly,jdbcType=BOOLEAN},
-      `status` = #{status,jdbcType=CHAR},
-      del_flag = #{delFlag,jdbcType=CHAR},
+      data_scope = #{dataScope,jdbcType=INTEGER},
+      menu_check_strictly = #{menuCheckStrictly,jdbcType=INTEGER},
+      dept_check_strictly = #{deptCheckStrictly,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=INTEGER},
       create_by = #{createBy,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_by = #{updateBy,jdbcType=VARCHAR},

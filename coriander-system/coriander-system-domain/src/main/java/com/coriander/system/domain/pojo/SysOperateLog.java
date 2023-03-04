@@ -1,15 +1,17 @@
 package com.coriander.system.domain.pojo;
 
+import com.coriander.common.entity.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.Serializable;
-import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * 
@@ -19,14 +21,15 @@ import lombok.ToString;
 /**
  * 操作日志记录
  */
-@ApiModel(value = "操作日志记录")
+@ApiModel(description = "操作日志记录")
 @Getter
 @Setter
 @ToString
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SysOperateLog implements Serializable {
+public class SysOperateLog extends BaseEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
      * 日志主键
      */
@@ -122,36 +125,4 @@ public class SysOperateLog implements Serializable {
      */
     @ApiModelProperty(value = "操作时间")
     private LocalDateTime operateTime;
-
-    /**
-     * 创建者
-     */
-    @ApiModelProperty(value = "创建者")
-    private String createBy;
-
-    /**
-     * 创建时间
-     */
-    @ApiModelProperty(value = "创建时间")
-    private LocalDateTime createTime;
-
-    /**
-     * 更新者
-     */
-    @ApiModelProperty(value = "更新者")
-    private String updateBy;
-
-    /**
-     * 更新时间
-     */
-    @ApiModelProperty(value = "更新时间")
-    private LocalDateTime updateTime;
-
-    /**
-     * 备注
-     */
-    @ApiModelProperty(value = "备注")
-    private String remark;
-
-    private static final long serialVersionUID = 1L;
 }

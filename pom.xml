@@ -130,6 +130,12 @@
                 <artifactId>coriander-framework</artifactId>
                 <version>${coriander-version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.coriander</groupId>
+                <artifactId>coriander-system-domain</artifactId>
+                <version>${coriander-version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

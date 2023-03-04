@@ -3,14 +3,15 @@ package com.coriander.system.domain.pojo;
 import com.coriander.common.entity.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.Serializable;
-import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * 
@@ -20,7 +21,7 @@ import lombok.ToString;
 /**
  * 用户信息表
  */
-@ApiModel(value = "用户信息表")
+@ApiModel(description = "用户信息表")
 @Getter
 @Setter
 @ToString
@@ -74,7 +75,7 @@ public class SysUser extends BaseEntity implements Serializable {
      * 用户性别（0男 1女 2未知）
      */
     @ApiModelProperty(value = "用户性别（0男 1女 2未知）")
-    private String sex;
+    private Integer sex;
 
     /**
      * 头像地址
@@ -92,13 +93,13 @@ public class SysUser extends BaseEntity implements Serializable {
      * 帐号状态（0正常 1停用）
      */
     @ApiModelProperty(value = "帐号状态（0正常 1停用）")
-    private String status;
+    private Integer status;
 
     /**
      * 删除标志（0代表存在 2代表删除）
      */
     @ApiModelProperty(value = "删除标志（0代表存在 2代表删除）")
-    private String delFlag;
+    private Integer delFlag;
 
     /**
      * 最后登录IP

@@ -19,7 +19,7 @@ import java.io.Serializable;
 /**
  * 角色和部门关联表
  */
-@ApiModel(value = "角色和部门关联表")
+@ApiModel(description = "角色和部门关联表")
 @Getter
 @Setter
 @ToString

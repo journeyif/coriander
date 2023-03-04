@@ -3,14 +3,14 @@ package com.coriander.system.domain.pojo;
 import com.coriander.common.entity.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
-import java.io.Serializable;
 
 /**
  * 
@@ -20,7 +20,7 @@ import java.io.Serializable;
 /**
  * 部门表
  */
-@ApiModel(value = "部门表")
+@ApiModel(description = "部门表")
 @Getter
 @Setter
 @ToString
@@ -86,11 +86,11 @@ public class SysDept extends BaseEntity implements Serializable {
      * 部门状态（0正常 1停用）
      */
     @ApiModelProperty(value = "部门状态（0正常 1停用）")
-    private String status;
+    private Integer status;
 
     /**
      * 删除标志（0代表存在 2代表删除）
      */
     @ApiModelProperty(value = "删除标志（0代表存在 2代表删除）")
-    private String delFlag;
+    private Integer delFlag;
 }

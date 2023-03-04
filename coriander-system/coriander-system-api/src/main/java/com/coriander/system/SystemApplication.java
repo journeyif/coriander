@@ -1,4 +1,4 @@
-package com.coriander;
+package com.coriander.system;
 
 import cn.dev33.satoken.SaManager;
 import cn.hutool.json.JSONUtil;
@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableAsync;
 
@@ -18,6 +19,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAspectJAutoProxy(exposeProxy = true)
 // 开启线程异步执行
 @EnableAsync
+@ComponentScan("com.coriander")
 // 指定要扫描的Mapper类的包的路径
 @MapperScan("com.coriander.**.mapper")
 @Slf4j
@@ -48,6 +50,7 @@ public class SystemApplication {
                 "        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n" +
                 " ε=ε=(ノ≧∇≦)ノ゜❅。゜。   系统模块启动完成      ε=ε=(ノ≧∇≦)ノ゜❅。゜。\n" +
                 "                   // 佛祖保佑 永不宕机 永无BUG //\n\n");
+
         log.info("Sa-Token配置:\n{}", JSONUtil.toJsonPrettyStr(SaManager.getConfig()));
     }
 }
