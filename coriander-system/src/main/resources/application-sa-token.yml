@@ -1,0 +1,18 @@
+############## Sa-Token 配置 (文档: https://sa-token.cc) ##############
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: coriander-token
+  # token有效期，单位s 默认30天, -1代表永不过期
+  timeout: 2592000
+  # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
+  activity-timeout: -1
+  # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
+  is-concurrent: true
+  # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
+  is-share: true
+  # token风格
+  token-style: random-32
+  # 是否输出操作日志
+  is-log: true
+  # jwt秘钥
+  jwt-secret-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgRS0y4as41JYfKrLPO5qUtVttFohCEouPhUNc6W2oz8z5zchRg0dN8vgyd4ic2QaG4TJx1VnNBH5uKjMAq8XSDvup213q/BSb1W6F70Stp/leKykcEzsgA2GQl062uQr0u9z4qaAuNjHxOloQE+llM4K8RjMyWvpRNDf4wl4LkumSx2UK3xsFDx9JSt4+2BDvVVTOLXVuCGsc1Ew7DFByIU19znXkoLfrjpP3+XWR8LKIkEON8XnXzCUDQQOaCmx/FhrgcDjZQE5qSp7pGA/KUSz84inCLqY+YK85BpgeNsrRvHpnCkBlusWTzXM5wTCf+sc8w/xClRowtshV0PEwwIDAQAB

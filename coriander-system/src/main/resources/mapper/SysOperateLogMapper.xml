@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coriander.system.mapper.SysOperateLogMapper">
+  <resultMap id="BaseResultMap" type="com.coriander.system.domain.pojo.SysOperateLog">
+    <!--@mbg.generated-->
+    <!--@Table sys_operate_log-->
+    <id column="operate_id" jdbcType="BIGINT" property="operateId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="business_type" jdbcType="INTEGER" property="businessType" />
+    <result column="method" jdbcType="VARCHAR" property="method" />
+    <result column="request_method" jdbcType="VARCHAR" property="requestMethod" />
+    <result column="operate_type" jdbcType="INTEGER" property="operateType" />
+    <result column="operate_name" jdbcType="VARCHAR" property="operateName" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="operate_url" jdbcType="VARCHAR" property="operateUrl" />
+    <result column="operate_ip" jdbcType="VARCHAR" property="operateIp" />
+    <result column="operate_location" jdbcType="VARCHAR" property="operateLocation" />
+    <result column="operate_param" jdbcType="LONGVARCHAR" property="operateParam" />
+    <result column="json_result" jdbcType="LONGVARCHAR" property="jsonResult" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="error_msg" jdbcType="LONGVARCHAR" property="errorMsg" />
+    <result column="operate_time" jdbcType="TIMESTAMP" property="operateTime" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    operate_id, title, business_type, `method`, request_method, operate_type, operate_name, 
+    dept_name, operate_url, operate_ip, operate_location, operate_param, json_result, 
+    `status`, error_msg, operate_time, create_by, create_time, update_by, update_time, 
+    remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_operate_log
+    where operate_id = #{operateId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from sys_operate_log
+    where operate_id = #{operateId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="operate_id" keyProperty="operateId" parameterType="com.coriander.system.domain.pojo.SysOperateLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_operate_log (title, business_type, `method`, 
+      request_method, operate_type, operate_name, 
+      dept_name, operate_url, operate_ip, 
+      operate_location, operate_param, json_result, 
+      `status`, error_msg, operate_time, 
+      create_by, create_time, update_by, 
+      update_time, remark)
+    values (#{title,jdbcType=VARCHAR}, #{businessType,jdbcType=INTEGER}, #{method,jdbcType=VARCHAR}, 
+      #{requestMethod,jdbcType=VARCHAR}, #{operateType,jdbcType=INTEGER}, #{operateName,jdbcType=VARCHAR}, 
+      #{deptName,jdbcType=VARCHAR}, #{operateUrl,jdbcType=VARCHAR}, #{operateIp,jdbcType=VARCHAR}, 
+      #{operateLocation,jdbcType=VARCHAR}, #{operateParam,jdbcType=LONGVARCHAR}, #{jsonResult,jdbcType=LONGVARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{errorMsg,jdbcType=LONGVARCHAR}, #{operateTime,jdbcType=TIMESTAMP}, 
+      #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="operate_id" keyProperty="operateId" parameterType="com.coriander.system.domain.pojo.SysOperateLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_operate_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        title,
+      </if>
+      <if test="businessType != null">
+        business_type,
+      </if>
+      <if test="method != null">
+        `method`,
+      </if>
+      <if test="requestMethod != null">
+        request_method,
+      </if>
+      <if test="operateType != null">
+        operate_type,
+      </if>
+      <if test="operateName != null">
+        operate_name,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="operateUrl != null">
+        operate_url,
+      </if>
+      <if test="operateIp != null">
+        operate_ip,
+      </if>
+      <if test="operateLocation != null">
+        operate_location,
+      </if>
+      <if test="operateParam != null">
+        operate_param,
+      </if>
+      <if test="jsonResult != null">
+        json_result,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="errorMsg != null">
+        error_msg,
+      </if>
+      <if test="operateTime != null">
+        operate_time,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        #{businessType,jdbcType=INTEGER},
+      </if>
+      <if test="method != null">
+        #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="requestMethod != null">
+        #{requestMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="operateType != null">
+        #{operateType,jdbcType=INTEGER},
+      </if>
+      <if test="operateName != null">
+        #{operateName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="operateUrl != null">
+        #{operateUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="operateIp != null">
+        #{operateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="operateLocation != null">
+        #{operateLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="operateParam != null">
+        #{operateParam,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="jsonResult != null">
+        #{jsonResult,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="errorMsg != null">
+        #{errorMsg,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="operateTime != null">
+        #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.coriander.system.domain.pojo.SysOperateLog">
+    <!--@mbg.generated-->
+    update sys_operate_log
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        business_type = #{businessType,jdbcType=INTEGER},
+      </if>
+      <if test="method != null">
+        `method` = #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="requestMethod != null">
+        request_method = #{requestMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="operateType != null">
+        operate_type = #{operateType,jdbcType=INTEGER},
+      </if>
+      <if test="operateName != null">
+        operate_name = #{operateName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="operateUrl != null">
+        operate_url = #{operateUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="operateIp != null">
+        operate_ip = #{operateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="operateLocation != null">
+        operate_location = #{operateLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="operateParam != null">
+        operate_param = #{operateParam,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="jsonResult != null">
+        json_result = #{jsonResult,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="errorMsg != null">
+        error_msg = #{errorMsg,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="operateTime != null">
+        operate_time = #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where operate_id = #{operateId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.coriander.system.domain.pojo.SysOperateLog">
+    <!--@mbg.generated-->
+    update sys_operate_log
+    set title = #{title,jdbcType=VARCHAR},
+      business_type = #{businessType,jdbcType=INTEGER},
+      `method` = #{method,jdbcType=VARCHAR},
+      request_method = #{requestMethod,jdbcType=VARCHAR},
+      operate_type = #{operateType,jdbcType=INTEGER},
+      operate_name = #{operateName,jdbcType=VARCHAR},
+      dept_name = #{deptName,jdbcType=VARCHAR},
+      operate_url = #{operateUrl,jdbcType=VARCHAR},
+      operate_ip = #{operateIp,jdbcType=VARCHAR},
+      operate_location = #{operateLocation,jdbcType=VARCHAR},
+      operate_param = #{operateParam,jdbcType=LONGVARCHAR},
+      json_result = #{jsonResult,jdbcType=LONGVARCHAR},
+      `status` = #{status,jdbcType=INTEGER},
+      error_msg = #{errorMsg,jdbcType=LONGVARCHAR},
+      operate_time = #{operateTime,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where operate_id = #{operateId,jdbcType=BIGINT}
+  </update>
+</mapper>

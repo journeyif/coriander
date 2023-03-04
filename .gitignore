@@ -1,0 +1,6 @@
+# Project exclude paths
+/coriander-common/target/
+/coriander-framework/target/
+/coriander-system/target/
+
+/logs

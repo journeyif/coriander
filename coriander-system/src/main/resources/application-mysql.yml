@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    # 数据源
+    url: jdbc:mysql://192.168.90.130:3306/coriander?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: password
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 连接池
+    hikari:
+      maximum-pool-size: 8
+      minimum-idle: 4
+      idle-timeout: 30000
+      connection-timeout: 30000
+      max-lifetime: 45000
+      auto-commit: true
+      pool-name: EcommerceHikariCP

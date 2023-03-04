@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.coriander</groupId>
+    <artifactId>coriander</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>coriander-system</module>
+        <module>coriander-common</module>
+        <module>coriander-framework</module>
+    </modules>
+
+    <properties>
+        <coriander-version>1.0-SNAPSHOT</coriander-version>
+
+        <!--    基础依赖    -->
+        <hutool-all.version>5.8.5</hutool-all.version>
+        <fastjson2.version>2.0.12.graal</fastjson2.version>
+
+        <!--    build配置    -->
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+        <spring-boot-maven-plugin.version>2.6.8</spring-boot-maven-plugin.version>
+
+        <!--    boot、cloud版本    -->
+        <spring-boot.version>2.7.3</spring-boot.version>
+
+        <!--    数据库相关    -->
+        <spring-boot.mybatis>2.2.2</spring-boot.mybatis>
+        <pagehelper.boot.version>1.4.3</pagehelper.boot.version>
+        <javax.persistence-api>2.2</javax.persistence-api>
+
+        <!--   knife4j     -->
+        <knife4j-openapi2-spring-boot-starter.version>4.0.0</knife4j-openapi2-spring-boot-starter.version>
+
+        <junit.version>4.12</junit.version>
+
+        <!--     screw 生成数据库文档     -->
+        <freemarker.version>2.3.30</freemarker.version>
+        <screw-core.version>1.0.3</screw-core.version>
+        <!--    Sa-Token 版本    -->
+        <sa-token.version>1.34.0</sa-token.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- SpringBoot 依赖配置 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Mybatis 依赖配置 -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${spring-boot.mybatis}</version>
+            </dependency>
+
+            <!-- pagehelper 分页插件 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.boot.version}</version>
+            </dependency>
+
+            <!--引入Knife4j的官方start包,该指南选择Spring Boot版本<3.0,开发者需要注意-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
+                <version>${knife4j-openapi2-spring-boot-starter.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>javax.persistence</groupId>
+                <artifactId>javax.persistence-api</artifactId>
+                <version>${javax.persistence-api}</version>
+            </dependency>
+
+            <!-- screw 生成数据库文档 -->
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.smallbun.screw</groupId>
+                <artifactId>screw-core</artifactId>
+                <version>${screw-core.version}</version>
+            </dependency>
+
+            <!-- Sa-Token 权限认证, 在线文档：https://sa-token.cc -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-spring-boot-starter</artifactId>
+                <version>${sa-token.version}</version>
+            </dependency>
+
+            <!-- Sa-Token 整合 Redis （使用 jackson 序列化方式） -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-dao-redis-jackson</artifactId>
+                <version>${sa-token.version}</version>
+            </dependency>
+
+            <!-- Sa-Token 整合 jwt -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-jwt</artifactId>
+                <version>${sa-token.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.coriander</groupId>
+                <artifactId>coriander-common</artifactId>
+                <version>${coriander-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.coriander</groupId>
+                <artifactId>coriander-framework</artifactId>
+                <version>${coriander-version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!--    hutool工具依赖    -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool-all.version}</version>
+        </dependency>
+
+        <!--     junit测试      -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--   lombok     -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!-- fastJson -->
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+            <version>${fastjson2.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+</project>
